@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useState } from 'react'
 
-export function MediaPiker() {
+export function MediaPicker() {
   const [preview, setPreview] = useState<string | null>(null)
 
   function onFileSelected(event: ChangeEvent<HTMLInputElement>) {
@@ -22,12 +22,14 @@ export function MediaPiker() {
       <input
         onChange={onFileSelected}
         type="file"
+        name="coverUrl"
         id="media"
         accept="image/*"
         className="invisible h-0 w-0"
       />
+
       {preview && (
-        // eslint-disable-next-line @next/next/no-img-element
+        // eslint-disable-next-line
         <img
           src={preview}
           alt=""
