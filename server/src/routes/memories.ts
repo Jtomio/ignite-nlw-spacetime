@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
-import { prisma } from '../lib/prisma'
 import { z } from 'zod'
+import { prisma } from '../lib/prisma'
 
 export async function memoriesRoutes(app: FastifyInstance) {
   app.addHook('preHandler', async (request) => {
@@ -16,6 +16,7 @@ export async function memoriesRoutes(app: FastifyInstance) {
         createdAt: 'asc',
       },
     })
+
     return memories.map((memory) => {
       return {
         id: memory.id,
@@ -63,6 +64,7 @@ export async function memoriesRoutes(app: FastifyInstance) {
         userId: request.user.sub,
       },
     })
+
     return memory
   })
 
@@ -101,6 +103,7 @@ export async function memoriesRoutes(app: FastifyInstance) {
         isPublic,
       },
     })
+
     return memory
   })
 
