@@ -26,10 +26,16 @@ export function NewMemoryForm() {
       const uploadResponse = await api.post('/upload', uploadFormData)
 
       coverUrl = uploadResponse.data.fileUrl
+
+      console.log(fileToUpload)
+
+      console.log(coverUrl)
+
+      console.log(uploadResponse)
     }
 
     const token = Cookie.get('token')
-    console.log(token)
+
     await api.post(
       '/memories',
       {
